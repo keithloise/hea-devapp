@@ -20,8 +20,8 @@
             "app/_config.php",
             "app/_config/mimevalidator.yml",
             "app/_config/mysite.yml",
-            "app/src/Page.php",
-            "app/src/PageController.php"
+            "app/src/Pages/Page.php",
+            "app/src/PageController/PageController.php"
         ],
         "public-files-installed": [
             ".htaccess",
