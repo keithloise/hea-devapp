@@ -3,6 +3,7 @@
 namespace {
 
     use SilverStripe\CMS\Controllers\ContentController;
+    use SilverStripe\View\Requirements;
 
     class PageController extends ContentController
     {
@@ -28,6 +29,15 @@ namespace {
             parent::init();
             // You can include any CSS or JS required by your project here.
             // See: https://docs.silverstripe.org/en/developer_guides/templates/requirements/
+            Requirements::css('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+            $yearToday = date('Y');
+            $yearExist = EventYear::get();
+            if(!$yearExist->filter('Name', $yearToday)->first()) {
+                $year = new EventYear();
+                $year->Name = $yearToday;
+                $year->write();
+            }
         }
     }
 }
