@@ -6,8 +6,19 @@
         "php": "^7.1 || ^8",
         "silverstripe/recipe-plugin": "^1.2",
         "silverstripe/recipe-cms": "4.7.3@stable",
-        "silverstripe-themes/simple": "~3.2.0",
-        "silverstripe/login-forms": "4.3.0@stable"
+        "silverstripe/login-forms": "4.3.0@stable",
+        "cwp/cwp": "dev-master",
+        "cwp/starter-theme": "dev-hea",
+        "burnbright/silverstripe-hasonefield": "dev-master",
+        "undefinedoffset/sortablegridfield": "dev-master",
+        "bummzack/sortablefile": "dev-master",
+        "colymba/gridfield-bulk-editing-tools": "dev-master",
+        "unclecheese/display-logic": "dev-master",
+        "tractorcow/silverstripe-colorpicker": "^4@dev",
+        "tractorcow/silverstripe-sliderfield": "dev-master",
+        "symbiote/silverstripe-multivaluefield": "^5.0",
+        "jinjie/codeeditorfield": "^0.0.4",
+        "silverstripe/userforms": "dev-master"
     },
     "require-dev": {
         "sminnee/phpunit": "^5.7",
@@ -32,6 +43,12 @@
     "config": {
         "process-timeout": 600
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/keithloise/cwp-starter-theme.git"
+        }
+    ],
     "prefer-stable": true,
     "minimum-stability": "dev"
 }
