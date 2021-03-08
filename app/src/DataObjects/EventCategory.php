@@ -5,6 +5,7 @@ namespace {
     use SilverStripe\Forms\CheckboxField;
     use SilverStripe\Forms\DropdownField;
     use SilverStripe\Forms\HiddenField;
+    use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
     use SilverStripe\Forms\TextField;
     use SilverStripe\ORM\DataObject;
     use SilverStripe\Security\Permission;
@@ -18,6 +19,7 @@ namespace {
 
         private static $db = [
             'Name'     => 'Text',
+            'Content'  => 'HTMLText',
             'Archived' => 'Boolean',
             'Sort'     => 'Int',
         ];
@@ -42,6 +44,7 @@ namespace {
             $fields->addFieldToTab('Root.Main', TextField::create('Name'));
             $fields->addFieldToTab('Root.Main', DropdownField::create('EventYearID', 'Event year',
                 EventYear::get()->filter('Archived', false)->map('ID','Name')));
+            $fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content'));
             $fields->addFieldToTab('Root.Main', CheckboxField::create('Archived'));
             $fields->addFieldToTab('Root.Main', HiddenField::create('Sort'));
 
@@ -63,6 +66,7 @@ namespace {
                 $history = new CategoryHistory();
                 $history->Name = $this->Name;
                 $history->EventYear = $this->getReadableEventYear();
+                $history->Content   = $this->Content;
                 $history->Category  = $id;
                 $history->write();
             }

@@ -4,6 +4,7 @@ namespace {
 
     use SilverStripe\Forms\CheckboxField;
     use SilverStripe\Forms\HiddenField;
+    use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
     use SilverStripe\Forms\ReadonlyField;
     use SilverStripe\Forms\TextField;
     use SilverStripe\ORM\DataObject;
@@ -18,6 +19,7 @@ namespace {
         private static $db = [
             'Name'      => 'Text',
             'EventYear' => 'Varchar',
+            'Content'   => 'HTMLText',
             'Archived'  => 'Boolean',
             'Sort'      => 'Int'
         ];
@@ -38,6 +40,7 @@ namespace {
             $fields->removeByName('JudgeID');
             $fields->addFieldToTab('Root.Main', ReadonlyField::create('CategoryRO', 'Category', $this->Category()->Name));
             $fields->addFieldToTab('Root.Main', HiddenField::create('Name'));
+            $fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content'));
             $fields->addFieldToTab('Root.Main', TextField::create('EventYear'));
             $fields->addFieldToTab('Root.Main', CheckboxField::create('Archived'));
             $fields->addFieldToTab('Root.Main', HiddenField::create('Sort'));
