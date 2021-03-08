@@ -41,7 +41,7 @@ namespace {
 
         private static $summary_fields = [
             'Name',
-            'Type' => 'Section Type',
+            'DisplayType' => 'Section Type',
             'Width',
             'Status'
         ];
