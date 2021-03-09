@@ -6,6 +6,7 @@ namespace {
     use SilverStripe\Forms\FieldList;
     use SilverStripe\Forms\GridField\GridField;
     use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+    use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
     use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
     use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
@@ -13,12 +14,17 @@ namespace {
     {
         private static $singular_name = "Accordion Section";
 
+        private static $db = [
+            'Content' => 'HTMLText'
+        ];
+
         private static $has_many = [
             'AccordionItems' => AccordionItem::class,
         ];
 
         public function getSectionCMSFields(FieldList $fields)
         {
+            $fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content'));
             $gridConfig = GridFieldConfig_RecordEditor::create(9999);
             if ($this->AccordionItems()->Count()) {
                 $gridConfig->addComponent(new GridFieldSortableRows('Sort'));
