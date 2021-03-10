@@ -1,0 +1,15 @@
+
+.app-brand {
+    padding: 20px;
+}
+.app-brand .app-brand__logo {
+
+}
+
+.app-brand .app-brand__logo img {
+    width: 100%;
+    max-width: 200px;
+    filter: brightness(0) sepia(1) hue-rotate(
+        180deg
+    ) saturate(5);
+}

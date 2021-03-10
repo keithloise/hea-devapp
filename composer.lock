@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b326826fefad4bcad21856bcbf90f70",
+    "content-hash": "2d3f6e5a5040da31a9135e31f1b6e3ae",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -617,12 +617,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/keithloise/cwp-starter-theme.git",
-                "reference": "750908672bc02f2f1e3d0348227ece577a408865"
+                "reference": "d0a705d1c94167371b9f9eb64d12386587ff031e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/keithloise/cwp-starter-theme/zipball/750908672bc02f2f1e3d0348227ece577a408865",
-                "reference": "750908672bc02f2f1e3d0348227ece577a408865",
+                "url": "https://api.github.com/repos/keithloise/cwp-starter-theme/zipball/d0a705d1c94167371b9f9eb64d12386587ff031e",
+                "reference": "d0a705d1c94167371b9f9eb64d12386587ff031e",
                 "shasum": ""
             },
             "require": {
@@ -655,7 +655,7 @@
             "support": {
                 "source": "https://github.com/keithloise/cwp-starter-theme/tree/hea"
             },
-            "time": "2021-03-08T01:17:55+00:00"
+            "time": "2021-03-08T07:21:14+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -2379,6 +2379,61 @@
                 "source": "https://github.com/sebastianbergmann/recursion-context/tree/master"
             },
             "time": "2016-11-19T07:33:16+00:00"
+        },
+        {
+            "name": "sheadawson/silverstripe-dependentdropdownfield",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sheadawson/silverstripe-dependentdropdownfield.git",
+                "reference": "dda6ba37d5e9f156de5cf2858e0ff07edb415126"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sheadawson/silverstripe-dependentdropdownfield/zipball/dda6ba37d5e9f156de5cf2858e0ff07edb415126",
+                "reference": "dda6ba37d5e9f156de5cf2858e0ff07edb415126",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6",
+                "silverstripe/framework": "^4.0",
+                "silverstripe/vendor-plugin": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "default-branch": true,
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "installer-name": "dependentdropdownfield",
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                },
+                "expose": [
+                    "client"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sheadawson\\DependentDropdown\\": "src/",
+                    "Sheadawson\\DependentDropdown\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "A silverstripe dropdown field that has it's options populated via ajax, based on the value of the field it depends on",
+            "homepage": "https://github.com/sheadawson/silverstripe-dependentdropdownfield",
+            "keywords": [
+                "dropdown",
+                "silverstripe"
+            ],
+            "support": {
+                "issues": "https://github.com/sheadawson/silverstripe-dependentdropdownfield/issues",
+                "source": "https://github.com/sheadawson/silverstripe-dependentdropdownfield/tree/2.0.3"
+            },
+            "time": "2020-07-05T23:00:56+00:00"
         },
         {
             "name": "silverstripe/admin",
@@ -5677,30 +5732,35 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.9.1",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/assert.git",
-                "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
+                "reference": "6964c76c7804814a842473e0c8fd15bab0f18e25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
-                "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/6964c76c7804814a842473e0c8fd15bab0f18e25",
+                "reference": "6964c76c7804814a842473e0c8fd15bab0f18e25",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0 || ^8.0",
+                "php": "^7.2 || ^8.0",
                 "symfony/polyfill-ctype": "^1.8"
             },
             "conflict": {
                 "phpstan/phpstan": "<0.12.20",
-                "vimeo/psalm": "<3.9.1"
+                "vimeo/psalm": "<4.6.1 || 4.6.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.36 || ^7.5.13"
+                "phpunit/phpunit": "^8.5.13"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.10-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Webmozart\\Assert\\": "src/"
@@ -5724,9 +5784,9 @@
             ],
             "support": {
                 "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/1.9.1"
+                "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
-            "time": "2020-07-08T17:02:28+00:00"
+            "time": "2021-03-09T10:59:23+00:00"
         },
         {
             "name": "webonyx/graphql-php",
@@ -6587,7 +6647,8 @@
         "unclecheese/display-logic": 20,
         "tractorcow/silverstripe-colorpicker": 20,
         "tractorcow/silverstripe-sliderfield": 20,
-        "silverstripe/userforms": 20
+        "silverstripe/userforms": 20,
+        "sheadawson/silverstripe-dependentdropdownfield": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

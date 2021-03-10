@@ -3,19 +3,16 @@
 namespace {
 
     use SilverStripe\Admin\ModelAdmin;
-    use SilverStripe\Forms\GridField\GridFieldFilterHeader;
-    use SilverStripe\ORM\DataObject;
     use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
-    class EventCategoryAdmin extends ModelAdmin
+    class EventFinalistAdmin extends ModelAdmin
     {
-        private static $menu_icon_class = 'font-icon-tree';
-        private static $url_segment = 'categories';
-        private static $menu_title  = 'Categories';
+        private static $menu_icon_class = 'font-icon-circle-star';
+        private static $url_segment = 'finalists';
+        private static $menu_title  = 'Finalists';
 
         private static $managed_models  = [
-            EventCategory::class,
-            CategoryHistory::class
+            EventFinalist::class,
         ];
 
         public function getEditForm($id = null, $fields = null)
