@@ -617,12 +617,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/keithloise/cwp-starter-theme.git",
-                "reference": "d0a705d1c94167371b9f9eb64d12386587ff031e"
+                "reference": "cac265036787706f77a02e322b85fb12f933e800"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/keithloise/cwp-starter-theme/zipball/d0a705d1c94167371b9f9eb64d12386587ff031e",
-                "reference": "d0a705d1c94167371b9f9eb64d12386587ff031e",
+                "url": "https://api.github.com/repos/keithloise/cwp-starter-theme/zipball/cac265036787706f77a02e322b85fb12f933e800",
+                "reference": "cac265036787706f77a02e322b85fb12f933e800",
                 "shasum": ""
             },
             "require": {
@@ -655,7 +655,7 @@
             "support": {
                 "source": "https://github.com/keithloise/cwp-starter-theme/tree/hea"
             },
-            "time": "2021-03-08T07:21:14+00:00"
+            "time": "2021-03-10T01:31:49+00:00"
         },
         {
             "name": "doctrine/instantiator",
