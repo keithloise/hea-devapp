@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d3f6e5a5040da31a9135e31f1b6e3ae",
+    "content-hash": "2bd96180d771e685bb374863a763c6b3",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -2382,16 +2382,16 @@
         },
         {
             "name": "sheadawson/silverstripe-dependentdropdownfield",
-            "version": "dev-master",
+            "version": "dev-listbox",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sheadawson/silverstripe-dependentdropdownfield.git",
-                "reference": "dda6ba37d5e9f156de5cf2858e0ff07edb415126"
+                "url": "https://github.com/keithloise/silverstripe-dependentdropdownfield.git",
+                "reference": "564fc980a89efa5c3d59703e0a3bae34773d7ed6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sheadawson/silverstripe-dependentdropdownfield/zipball/dda6ba37d5e9f156de5cf2858e0ff07edb415126",
-                "reference": "dda6ba37d5e9f156de5cf2858e0ff07edb415126",
+                "url": "https://api.github.com/repos/keithloise/silverstripe-dependentdropdownfield/zipball/564fc980a89efa5c3d59703e0a3bae34773d7ed6",
+                "reference": "564fc980a89efa5c3d59703e0a3bae34773d7ed6",
                 "shasum": ""
             },
             "require": {
@@ -2402,7 +2402,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^5.7"
             },
-            "default-branch": true,
             "type": "silverstripe-vendormodule",
             "extra": {
                 "installer-name": "dependentdropdownfield",
@@ -2419,7 +2418,6 @@
                     "Sheadawson\\DependentDropdown\\Tests\\": "tests/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -2431,9 +2429,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sheadawson/silverstripe-dependentdropdownfield/issues",
-                "source": "https://github.com/sheadawson/silverstripe-dependentdropdownfield/tree/2.0.3"
+                "source": "https://github.com/keithloise/silverstripe-dependentdropdownfield/tree/listbox"
             },
-            "time": "2020-07-05T23:00:56+00:00"
+            "time": "2021-03-10T05:26:53+00:00"
         },
         {
             "name": "silverstripe/admin",

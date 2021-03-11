@@ -19,7 +19,7 @@
         "symbiote/silverstripe-multivaluefield": "^5.0",
         "jinjie/codeeditorfield": "^0.0.4",
         "silverstripe/userforms": "dev-master",
-        "sheadawson/silverstripe-dependentdropdownfield": "dev-master"
+        "sheadawson/silverstripe-dependentdropdownfield": "dev-listbox"
     },
     "require-dev": {
         "sminnee/phpunit": "^5.7",
@@ -51,6 +51,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/keithloise/cwp-starter-theme.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/keithloise/silverstripe-dependentdropdownfield.git"
         }
     ],
     "prefer-stable": true,

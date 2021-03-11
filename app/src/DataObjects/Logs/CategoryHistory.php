@@ -20,12 +20,17 @@ namespace {
             'Name'      => 'Text',
             'EventYear' => 'Varchar',
             'Content'   => 'HTMLText',
+            'FinalistsContent' => 'HTMLText',
             'Archived'  => 'Boolean',
             'Sort'      => 'Int'
         ];
 
         private static $has_one = [
             'Category' => EventCategory::class,
+        ];
+
+        private static $belongs_many_many = [
+            'EventJudge' => EventJudge::class
         ];
 
         private static $summary_fields = [
@@ -42,6 +47,7 @@ namespace {
             $fields->addFieldToTab('Root.Main', HiddenField::create('Name'));
             $fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content'));
             $fields->addFieldToTab('Root.Main', TextField::create('EventYear'));
+            $fields->addFieldToTab('Root.Extra', HTMLEditorField::create('FinalistsContent'));
             $fields->addFieldToTab('Root.Main', CheckboxField::create('Archived'));
             $fields->addFieldToTab('Root.Main', HiddenField::create('Sort'));
 

@@ -2,6 +2,8 @@
 
 namespace {
 
+    use Sheadawson\DependentDropdown\Forms\DependentDropdownField;
+    use Sheadawson\DependentDropdown\Forms\DependentListboxField;
     use SilverStripe\AssetAdmin\Forms\UploadField;
     use SilverStripe\Assets\Image;
     use SilverStripe\Forms\CheckboxField;
@@ -9,7 +11,6 @@ namespace {
     use SilverStripe\Forms\GridField\GridField;
     use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
     use SilverStripe\Forms\HiddenField;
-    use SilverStripe\Forms\ListboxField;
     use SilverStripe\Forms\TextareaField;
     use SilverStripe\Forms\TextField;
     use SilverStripe\ORM\DataObject;
@@ -40,7 +41,7 @@ namespace {
         ];
 
         private static $many_many = [
-            'Categories' => EventCategory::class,
+            'Categories' => CategoryHistory::class,
         ];
 
         private static $owns = [
@@ -50,9 +51,9 @@ namespace {
         private static $summary_fields = [
             'Name',
             'Position',
-            'Image.CMSThumbnail'=> 'Profile Image',
+            'Image.CMSThumbnail'    => 'Profile Image',
             'ReadableEventCategory' => 'Assigned Categories',
-            'ReadableEventYear' => 'Event Year',
+            'ReadableEventYear'     => 'Event Year',
             'Status'
         ];
 
@@ -64,10 +65,17 @@ namespace {
             $fields->addFieldToTab('Root.Main', TextField::create('Position'));
             $fields->addFieldToTab('Root.Main', TextareaField::create('Blurb'));
             $fields->removeByName("Categories");
-            $fields->addFieldToTab('Root.Main', ListboxField::create('Categories', 'Event categories',
-                EventCategory::get()->map('ID','Name')));
-            $fields->addFieldToTab('Root.Main', DropdownField::create('EventYearID', 'Event year',
+            $fields->addFieldToTab('Root.Main', $eventYear = DropdownField::create('EventYearID', 'Event year',
                 EventYear::get()->filter('Archived', false)->map('ID','Name')));
+
+            $categorySource = function($val) {
+                $eventYear = EventYear::get()->byID($val);
+                return CategoryHistory::get()->filter(['Archived' => false, "EventYear" => $eventYear->Name])->map('ID','Name');
+            };
+
+            $fields->addFieldToTab('Root.Main', DependentListboxField::create('Categories', 'Event categories',
+                $categorySource)->setDepends($eventYear));
+
             $fields->addFieldToTab('Root.Main', CheckboxField::create('Archived'));
             $fields->addFieldToTab('Root.Main', HiddenField::create('Sort'));
 
