@@ -54,7 +54,7 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/keithloise/silverstripe-dependentdropdownfield.git"
+            "url": "https://github.com/i3waitematadhb/silverstripe-dependentdropdownfield.git"
         }
     ],
     "prefer-stable": true,

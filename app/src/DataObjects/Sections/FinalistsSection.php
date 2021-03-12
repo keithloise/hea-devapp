@@ -30,19 +30,21 @@ namespace {
                 $categoryArray = new ArrayList();
                 foreach ($categories as $category) {
                     $finalists = EventFinalist::get()->filter(['Archived' => false, 'EventYearID' => $year->ID, 'EventCategoryID' => $category->ID]);
-                    $finalistsArray = new ArrayList();
-                    foreach($finalists as $finalist) {
-                        $finalistsArray[] = new ArrayData(array(
-                            'Name'    => $finalist->Name,
-                            'Image'   => $finalist->Image,
-                            'Content' => $finalist->Content,
+                    if (count($finalists)) {
+                        $finalistsArray = new ArrayList();
+                        foreach($finalists as $finalist) {
+                            $finalistsArray[] = new ArrayData(array(
+                                'Name'    => $finalist->Name,
+                                'Image'   => $finalist->Image,
+                                'Content' => $finalist->Content,
+                            ));
+                        }
+                        $categoryArray[] = new ArrayData(array(
+                            'Name' => $category->Name,
+                            'Content' => $category->FinalistsContent,
+                            'Finalists' => $finalistsArray
                         ));
                     }
-                    $categoryArray[] = new ArrayData(array(
-                        'Name'=> $category->Name,
-                        'Content' => $category->FinalistsContent,
-                        'Finalists' => $finalistsArray
-                    ));
                 }
                 $childOutput = [
                     'Year'     => $year->Name,
