@@ -1,4 +1,4 @@
-## To Install
+## To Install ##
 
 Clone this repository and run `composer update` (It will install all of the website's required vendors)
 
@@ -6,13 +6,7 @@ Upload the database "db-hea-web" and modify your `.env` file depending on your c
 
 Open your terminal and change your directory to yoursite/themes/starter and run `yarn watch`
 
-## Silverstripe Overview
-
-Base project folder for a SilverStripe ([http://silverstripe.org](http://silverstripe.org)) installation. Required modules are installed via [http://github.com/silverstripe/recipe-cms](http://github.com/silverstripe/recipe-cms). For information on how to change the dependencies in a recipe, please have a look at [https://github.com/silverstripe/recipe-plugin](https://github.com/silverstripe/recipe-plugin). In addition, installer includes [theme/simple](https://github.com/silverstripe-themes/silverstripe-simple) as a default theme.
-
-## Installation ##
-
-`composer create-project silverstripe/installer my-app`
+## More from Silverstripe ##
 
 See [Getting Started](https://docs.silverstripe.org/en/4/getting_started/) for more information.
 
