@@ -2,8 +2,8 @@
 
 namespace {
 
+    use SebastianBergmann\CodeCoverage\Report\Text;
     use Sheadawson\DependentDropdown\Forms\DependentDropdownField;
-    use Sheadawson\DependentDropdown\Forms\DependentListboxField;
     use SilverStripe\AssetAdmin\Forms\UploadField;
     use SilverStripe\Assets\Image;
     use SilverStripe\Forms\CheckboxField;
@@ -23,24 +23,29 @@ namespace {
         private static $db = [
             'Name'      => 'Text',
             'Content'   => 'HTMLText',
+            'WinnerContent' => 'HTMLText',
+            'Result'    => 'Text',
             'Archived'  => 'Boolean',
             'Sort'      => 'Int'
         ];
 
         private static $has_one = [
             'Image'         => Image::class,
+            'WinnerImage'   => Image::class,
             'EventYear'     => EventYear::class,
             'EventCategory' => CategoryHistory::class
         ];
 
         private static $owns = [
-            'Image'
+            'Image',
+            'WinnerImage'
         ];
 
         private static $summary_fields = [
             'Name',
             'ReadableEventYear'     => 'Year',
             'ReadableEventCategory' => 'Category',
+            'Result',
             'Status'
         ];
 
@@ -59,8 +64,13 @@ namespace {
             $fields->addFieldToTab('Root.Main', DependentDropdownField::create('EventCategoryID', 'Event category',
                 $categorySource)->setDepends($eventYear));
 
+            $fields->addFieldToTab('Root.WinnerSection', UploadField::create('WinnerImage')
+                ->setFolderName('Winners/'.$this->EventYear()->Name.'/'.$this->EventCategory()->Name));
+            $fields->addFieldToTab('Root.WinnerSection', HTMLEditorField::create('WinnerContent','Content'));
+
             $fields->addFieldToTab('Root.Main', UploadField::create('Image')
                 ->setFolderName('Finalists/'.$this->EventYear()->Name.'/'.$this->EventCategory()->Name));
+            $fields->addFieldToTab('Root.Main', TextField::create('Result'));
             $fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content'));
             $fields->addFieldToTab('Root.Main', CheckboxField::create('Archived'));
             $fields->addFieldToTab('Root.Main', HiddenField::create('Sort'));

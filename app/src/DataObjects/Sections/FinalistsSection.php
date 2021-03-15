@@ -4,7 +4,6 @@ namespace {
 
     use SilverStripe\Forms\FieldList;
     use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-    use SilverStripe\Forms\LabelField;
     use SilverStripe\ORM\ArrayList;
     use SilverStripe\View\ArrayData;
 
@@ -23,7 +22,7 @@ namespace {
 
         public function getVisibleEventFinalists()
         {
-            $eventYears = EventYear::get()->filter('Archived', false)->sort('ID', 'DESC');
+            $eventYears = EventYear::get()->filter(['Archived' => false, 'ShowInFinalistsPage' => true])->sort('ID', 'DESC');
             $output = new ArrayList();
             foreach ($eventYears as $year) {
                 $categories = CategoryHistory::get()->filter(['Archived' => false, 'EventYear' => $year->Name]);
@@ -47,8 +46,9 @@ namespace {
                     }
                 }
                 $childOutput = [
-                    'Year'     => $year->Name,
-                    'Categories' => $categoryArray
+                    'Year'        => $year->Name,
+                    'YearContent' => $year->FinalistsPageExtraContent,
+                    'Categories'  => $categoryArray
                 ];
                 $output[] = new ArrayData(array('Finalists' => $childOutput));
             }
