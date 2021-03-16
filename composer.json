@@ -50,7 +50,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/keithloise/cwp-starter-theme.git"
+            "url": "https://github.com/i3waitematadhb/cwp-starter-theme.git"
         },
         {
             "type": "vcs",
