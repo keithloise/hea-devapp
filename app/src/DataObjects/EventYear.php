@@ -22,6 +22,8 @@ namespace {
             'FinalistsPageExtraContent' => 'HTMLText',
             'ShowInWinnersPage' => 'Boolean',
             'WinnersPageExtraContent' => 'HTMLText',
+            'ShowInGalleryPage' => 'Boolean',
+            'GalleryPageExtraContent' => 'HTMLText',
             'Archived' => 'Boolean',
             'Sort'     => 'Int',
         ];
@@ -41,6 +43,9 @@ namespace {
             $fields->addFieldToTab('Root.WinnersPage', CheckboxField::create('ShowInWinnersPage'));
             $fields->addFieldToTab('Root.WinnersPage', HTMLEditorField::create('WinnersPageExtraContent')
                 ->setRightTitle('This content will show on winners page year accordion'));
+            $fields->addFieldToTab('Root.GalleryPage', CheckboxField::create('ShowInGalleryPage'));
+            $fields->addFieldToTab('Root.GalleryPage', HTMLEditorField::create('GalleryPageExtraContent')
+                ->setRightTitle('This content will show on gallery page year accordion'));
             $fields->addFieldToTab('Root.Main', CheckboxField::create('Archived'));
             $fields->addFieldToTab('Root.Main', HiddenField::create('Sort'));
 
