@@ -20,12 +20,14 @@ namespace {
 
         private static $has_one = [
             'SiteLogo'   => File::class,
-            'PageBanner' => Image::class
+            'PageBanner' => Image::class,
+            'IEPageBanner' => Image::class
         ];
 
         private static $owns = [
             'SiteLogo',
             'PageBanner',
+            'IEPageBanner'
         ];
 
         public function updateCMSFields(FieldList $fields)
@@ -33,6 +35,8 @@ namespace {
             $fields->addFieldToTab('Root.Main', UploadField::create('SiteLogo')
                 ->setFolderName('Logo'));
             $fields->addFieldToTab('Root.Main', UploadField::create('PageBanner')
+                ->setFolderName('PageBanner'));
+            $fields->addFieldToTab('Root.Main', UploadField::create('IEPageBanner', 'For Internet Explorer banner')
                 ->setFolderName('PageBanner'));
             $fields->addFieldToTab('Root.Main', DropdownField::create('PageTheme', 'Website theme',
                 $this->owner->dbObject('PageTheme')->enumValues()));
