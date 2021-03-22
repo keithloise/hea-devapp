@@ -41,12 +41,32 @@ namespace {
                 $this->dbObject('PageTheme')->enumValues()),'Metadata');
 
             $gridConfig = GridFieldConfig_RecordEditor::create(9999);
-            if ($this->Sections()->Count()) {
+            if ($this->owner->Sections()->Count()) {
                 $gridConfig->addComponent(new GridFieldSortableRows('Sort'));
             }
+
             $gridConfig->addComponent(new GridFieldEditableColumns());
             $gridColumns = $gridConfig->getComponentByType(GridFieldEditableColumns::class);
             $gridColumns->setDisplayFields([
+                'Width' => [
+                    'title' => 'Width',
+                    'callback' => function($record, $column, $grid) {
+                        $fields = DropdownField::create($column, $column, array(
+                            'col-lg-2' => '16%',
+                            'col-lg-3' => '25%',
+                            'col-lg-4' => '33%',
+                            'col-lg-5' => '41%',
+                            'col-lg-6' => '50%',
+                            'col-lg-7' => '58%',
+                            'col-lg-8' => '66%',
+                            'col-lg-9' => '75%',
+                            'col-lg-10' => '83%',
+                            'col-lg-11' => '91%',
+                            'col-lg-12' => '100%',
+                        ));
+                        return $fields;
+                    }
+                ],
                 'Archived' => [
                     'title' => 'Archive',
                     'callback' => function($record, $column, $grid) {
@@ -58,7 +78,7 @@ namespace {
             $gridField = GridField::create(
                 'Sections',
                 'Sections',
-                $this->Sections(),
+                $this->owner->Sections(),
                 $gridConfig
             );
 
