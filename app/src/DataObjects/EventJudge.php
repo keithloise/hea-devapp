@@ -11,6 +11,7 @@ namespace {
     use SilverStripe\Forms\GridField\GridField;
     use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
     use SilverStripe\Forms\HiddenField;
+    use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
     use SilverStripe\Forms\TextareaField;
     use SilverStripe\Forms\TextField;
     use SilverStripe\ORM\DataObject;
@@ -27,6 +28,7 @@ namespace {
             'Name'     => 'Text',
             'Position' => 'Text',
             'Blurb'    => 'Text',
+            'Note'     => 'HTMLText',
             'Archived' => 'Boolean',
             'Sort'     => 'Int',
         ];
@@ -65,6 +67,8 @@ namespace {
             $fields->addFieldToTab('Root.Main', TextField::create('Position'));
             $fields->addFieldToTab('Root.Main', TextareaField::create('Blurb'));
             $fields->removeByName("Categories");
+            $fields->addFieldToTab('Root.Note', HTMLEditorField::create('Note')
+                ->setDescription('Additional information for judges or a note if there are no judges on the category'));
             $fields->addFieldToTab('Root.Main', $eventYear = DropdownField::create('EventYearID', 'Event year',
                 EventYear::get()->filter('Archived', false)->map('ID','Name')));
 
