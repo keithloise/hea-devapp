@@ -29,6 +29,7 @@ namespace {
             'Position' => 'Text',
             'Blurb'    => 'Text',
             'Note'     => 'HTMLText',
+            'Width'    => 'Varchar',
             'Archived' => 'Boolean',
             'Sort'     => 'Int',
         ];
@@ -69,6 +70,22 @@ namespace {
             $fields->removeByName("Categories");
             $fields->addFieldToTab('Root.Note', HTMLEditorField::create('Note')
                 ->setDescription('Additional information for judges or a note if there are no judges on the category'));
+            $fields->addFieldToTab('Root.Width', DropdownField::create('Width', 'Width',
+                array(
+                    'col-lg-2' => '16%',
+                    'col-lg-3' => '25%',
+                    'col-lg-4' => '33%',
+                    'col-lg-5' => '41%',
+                    'col-lg-6' => '50%',
+                    'col-lg-7' => '58%',
+                    'col-lg-8' => '66%',
+                    'col-lg-9' => '75%',
+                    'col-lg-10' => '83%',
+                    'col-lg-11' => '91%',
+                    'col-lg-12' => '100%',
+                )
+            ));
+
             $fields->addFieldToTab('Root.Main', $eventYear = DropdownField::create('EventYearID', 'Event year',
                 EventYear::get()->filter('Archived', false)->map('ID','Name')));
 
