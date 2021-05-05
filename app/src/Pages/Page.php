@@ -16,6 +16,7 @@ namespace {
     {
         private static $db = [
             'PageTheme' => 'Enum(array("dark","light"))',
+            'ShowAnnouncement' => 'Boolean'
         ];
 
         private static $has_one = [
@@ -83,6 +84,8 @@ namespace {
             );
 
             $fields->addFieldToTab('Root.Main', $gridField, 'Metadata');
+
+            $fields->addFieldToTab('Root.Main', CheckboxField::create('ShowAnnouncement', 'Show pre-header announcement'), 'Metadata');
 
             return $fields;
         }
