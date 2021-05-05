@@ -9,18 +9,20 @@ namespace {
     use SilverStripe\Forms\FieldList;
     use SilverStripe\Forms\GridField\GridField;
     use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+    use SilverStripe\Forms\TextareaField;
     use SilverStripe\ORM\DataExtension;
     use SilverStripe\Versioned\Versioned;
 
     class SiteConfigExtension extends DataExtension
     {
         private static $db = [
+            'PreHeader' => 'Text',
             'PageTheme' => 'Enum(array("dark","light"))',
         ];
 
         private static $has_one = [
-            'SiteLogo'   => File::class,
-            'PageBanner' => Image::class,
+            'SiteLogo'     => File::class,
+            'PageBanner'   => Image::class,
             'IEPageBanner' => Image::class
         ];
 
@@ -40,6 +42,8 @@ namespace {
                 ->setFolderName('PageBanner'));
             $fields->addFieldToTab('Root.Main', DropdownField::create('PageTheme', 'Website theme',
                 $this->owner->dbObject('PageTheme')->enumValues()));
+            $fields->addFieldToTab('Root.Main', TextareaField::create('PreHeader', 'Announcement Header')
+                ->setDescription('This will come up as pop-up announcement on the top of the header'));
 
             $configYear = GridFieldConfig_RecordEditor::create('999');
             $editorYear = GridField::create('EventYear', 'Event years', EventYear::get(), $configYear);
