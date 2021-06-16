@@ -28,7 +28,7 @@ namespace {
                 $categories = CategoryHistory::get()->filter(['Archived' => false, 'EventYear' => $year->Name]);
                 $categoryArray = new ArrayList();
                 foreach ($categories as $category) {
-                    $finalists = EventFinalist::get()->filter(['Archived' => false, 'EventYearID' => $year->ID, 'EventCategoryID' => $category->ID, 'Result' => 'Winner']);
+                    $finalists = EventFinalist::get()->filter(['EventYearID' => $year->ID, 'EventCategoryID' => $category->ID, 'Results' => '1']);
                     if (count($finalists)) {
                         $finalistsArray = new ArrayList();
                         foreach($finalists as $finalist) {
