@@ -24,7 +24,7 @@ namespace {
             'Name'      => 'Text',
             'Content'   => 'HTMLText',
             'WinnerContent' => 'HTMLText',
-            'Result'    => 'Text',
+            'Results'   => 'Boolean',
             'Archived'  => 'Boolean',
             'Sort'      => 'Int'
         ];
@@ -45,7 +45,7 @@ namespace {
             'Name',
             'ReadableEventYear'     => 'Year',
             'ReadableEventCategory' => 'Category',
-            'Result',
+            'ReadableResults' => 'Result',
             'Status'
         ];
 
@@ -70,7 +70,7 @@ namespace {
 
             $fields->addFieldToTab('Root.Main', UploadField::create('Image')
                 ->setFolderName('Finalists/'.$this->EventYear()->Name.'/'.$this->EventCategory()->Name));
-            $fields->addFieldToTab('Root.Main', TextField::create('Result'));
+            $fields->addFieldToTab('Root.Main', CheckboxField::create('Results', 'Winner'));
             $fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content'));
             $fields->addFieldToTab('Root.Main', CheckboxField::create('Archived'));
             $fields->addFieldToTab('Root.Main', HiddenField::create('Sort'));
@@ -82,6 +82,11 @@ namespace {
         {
             if($this->Archived == 1) return _t('GridField.Archived', 'Archived');
             return _t('GridField.Live', 'Live');
+        }
+
+        public function getReadableResults()
+        {
+            if($this->Results == 1) return _t('GridField.Winner', 'Winner');
         }
 
         public function getReadableEventYear()
