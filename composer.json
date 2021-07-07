@@ -5,8 +5,8 @@
     "require": {
         "php": "^7.1 || ^8",
         "silverstripe/recipe-plugin": "^1.2",
-        "silverstripe/recipe-cms": "4.7.3@stable",
-        "silverstripe/login-forms": "4.3.0@stable",
+        "silverstripe/recipe-cms": "4.8.0@stable",
+        "silverstripe/login-forms": "4.4.1@stable",
         "cwp/cwp": "dev-master",
         "cwp/starter-theme": "dev-hea",
         "burnbright/silverstripe-hasonefield": "dev-master",
@@ -32,15 +32,15 @@
             "app/_config.php",
             "app/_config/mimevalidator.yml",
             "app/_config/mysite.yml",
-            "app/src/Pages/Page.php",
-            "app/src/PageController/PageController.php"
+            "app/src/PageController/PageController.php",
+            "app/src/Pages/Page.php"
         ],
         "public-files-installed": [
             ".htaccess",
             "index.php",
             "web.config"
         ],
-        "expose" : [
+        "expose": [
             "app/css"
         ]
     },
